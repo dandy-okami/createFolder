@@ -22,7 +22,7 @@ public class Create {
 	}
 
 	static void showContent() throws IOException {
-		String directory = "C:\\Users\\admin\\Documents";
+		String directory = "/Users/dandy-kun/Documents";
 		Path dir = Paths.get(directory);
 		File fil = new File(directory);
 		File[] tab = fil.listFiles();
@@ -31,24 +31,25 @@ public class Create {
 		}
 	}
 
-	static void creatFolder() throws FileAlreadyExistsException {
-		String directory = "C:\\Users\\admin\\Documents\\test";
+	static void creatFolder() throws IOException {
+		String directory = "/Users/dandy-kun/Documents/test";
 		File folder = new File(directory);
-		if (folder.exists() == false) {
+		if (folder.exists()==false) {
 			folder.mkdir();
-			System.out.println("Dossier créer avec succes");
+			System.out.println("Dossier crÃ©er avec succes");
+		}else{
+			System.out.println("Dossier dÃ©ja existant");
 		}
-		System.out.println("Dossier déja existant");
+	
 	}
 
 	static void createFile() throws IOException {
-		String fichier = ("C:\\Users\\admin\\Documents\\test\\test.txt");
+		String fichier = ("/Users/dandy-kun/Documents/test/test.txt");
 		File file = new File(fichier);
-		if (file.exists() == false) {
-			file.createNewFile();
-			System.out.println("Fichier créer avec succes");
+		if (file.createNewFile()) {
+			System.out.println("Fichier crÃ©er avec succes");
 		} else {
-			System.out.println("fichier déja existant");
+			System.out.println("fichier dÃ©ja existant");
 		}
 	}
 
@@ -68,7 +69,7 @@ public class Create {
 		Create.showContent();
 		Create.creatFolder();
 		Create.createFile();
-		System.out.println(Create.getFileExtensionName());
+		
 	}
 
 }
